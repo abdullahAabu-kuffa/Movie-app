@@ -1,5 +1,7 @@
 # movie_app
 
+A Flutter app to browse and manage movie data from The Movie DB API
+
 A new Flutter project.
 
 ## Getting Started
