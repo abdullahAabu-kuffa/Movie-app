@@ -1,0 +1,46 @@
+name: movie_app
+description: "A Flutter app to browse and manage movie data from The Movie DB API."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  #bloc&cubit for state management
+  flutter_bloc: ^9.1.1
+  #for display svg images =>svqPicture
+  flutter_svg: ^2.2.1
+  #for fetech form apis
+  dio: ^5.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    # App static images
+    - assets/images/
+    # App icons
+    - assets/icons/
+
+  fonts:
+    - family: Inter
+      fonts:
+        # Variable fonts (preferred when available)
+        - asset: assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf
+        - asset: assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf
+
+        # Representative static weights
+        - asset: assets/fonts/Inter/static/Inter_18pt-Regular.ttf
+        - asset: assets/fonts/Inter/static/Inter_18pt-Medium.ttf
+        - asset: assets/fonts/Inter/static/Inter_18pt-SemiBold.ttf
+        - asset: assets/fonts/Inter/static/Inter_18pt-Bold.ttf
