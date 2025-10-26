@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/constants/movie_constants.dart';
+import 'package:movie_app/core/theme/movie_colors.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
+class MovieTitleSection extends StatelessWidget {
+  const MovieTitleSection({super.key, required this.titleSectionPopular});
+  final String titleSectionPopular;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       child: Text(
-        MovieStrings.titleSectionPopular,
+        titleSectionPopular,
         style: TextStyle(
           fontFamily: 'Inter',
           fontWeight: FontWeight.bold,
