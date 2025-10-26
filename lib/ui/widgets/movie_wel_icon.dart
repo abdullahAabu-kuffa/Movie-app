@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/constants/movie_constants.dart';
+import 'package:movie_app/core/theme/movie_colors.dart';
 
 class MovieWelIcon extends StatelessWidget {
   const MovieWelIcon({super.key});

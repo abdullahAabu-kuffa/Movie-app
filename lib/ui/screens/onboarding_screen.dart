@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/constants/movie_constants.dart';
+import 'package:movie_app/core/theme/movie_colors.dart';
 import 'package:movie_app/ui/widgets/movie_button.dart';
 import 'package:movie_app/ui/widgets/movie_wel_icon.dart';
 import 'package:movie_app/ui/widgets/movie_wel_text.dart';
@@ -33,17 +34,16 @@ class OnboardingScreen extends StatelessWidget {
                             MovieButton(
                               nameButton: MovieStrings.signinString,
                               onPressed: () {
-                                Navigator.pushReplacementNamed(
-                                  context,
-                                  '/home',
-                                );
+                                Navigator.pushReplacementNamed(context,'/home');
                               },
                             ),
                             const SizedBox(height: 20),
                             MovieButton(
                               nameButton: MovieStrings.signinByGoogleString,
                               bgColorButton: MovieColors.gray,
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(context,'/home');
+                              },
                             ),
                           ],
                         ),
