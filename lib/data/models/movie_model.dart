@@ -1,4 +1,5 @@
-
+import 'package:movie_app/core/constants/movie_constants.dart';
+import 'package:movie_app/core/networking/api_constants.dart';
 
 class MovieModel {
   final bool adult;
@@ -43,7 +44,7 @@ class MovieModel {
       originalTitle: json['original_title'] ?? json['original_name'],
       overview: json['overview'] ?? '',
       popularity: (json['popularity'] ?? 0).toDouble(),
-      posterPath: json['poster_path'],
+      posterPath:'${ApiConstants.imageBaseUrl}${json['poster_path']}',
       releaseDate: json['release_date'] ?? '',
       title: json['title'] ?? json['name'],
       video: json['video'] ?? false,
@@ -62,7 +63,9 @@ class MovieModel {
       'original_title': originalTitle,
       'overview': overview,
       'popularity': popularity,
-      'poster_path': posterPath,
+      'poster_path': posterPath != null
+          ? '${ApiConstants.imageBaseUrl}${posterPath!}'
+          : MovieImages.onboarding,
       'release_date': releaseDate,
       'title': title,
       'video': video,

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/constants/movie_constants.dart';
-import 'package:movie_app/core/networking/api_constants.dart';
 import 'package:movie_app/core/theme/movie_colors.dart';
 import 'package:movie_app/logic/cubit/search_cubit/search_cubit.dart';
 import 'package:movie_app/logic/cubit/search_cubit/search_state.dart';
-import 'package:movie_app/ui/widgets/movie_search_item.dart';
+import 'package:movie_app/ui/widgets/movie_popular_card.dart';
 import 'package:movie_app/ui/widgets/movie_title_seaction.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -62,16 +61,8 @@ class _SearchScreenState extends State<SearchScreen> {
                   itemCount: results.length,
                   itemBuilder: (context, index) {
                     final movie = results[index];
-
-                    final imagePath = movie.posterPath != null
-                        ? '${ApiConstants.imageBaseUrl}${movie.posterPath}'
-                        : MovieImages.onboarding;
-                    return MovieSearchItem(
-                      movieName: movie.title,
-                      movieDescription: movie.originalTitle.isNotEmpty
-                          ? movie.originalTitle
-                          : movie.title,
-                      movieImgPath: imagePath,
+                    return MoviePopularCard(
+                      movie: movie
                     );
                   },
                 );

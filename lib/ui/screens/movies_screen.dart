@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/core/constants/movie_constants.dart';
-import 'package:movie_app/core/networking/api_constants.dart';
 import 'package:movie_app/core/theme/movie_colors.dart';
 import 'package:movie_app/logic/cubit/TvSeries_cubit/TvSeries_state.dart';
 import 'package:movie_app/logic/cubit/movies_cubit/movies_cubit.dart';
@@ -92,10 +91,6 @@ class _MoviesScreenState extends State<MoviesScreen> {
                                   itemCount: results.length,
                                   itemBuilder: (context, index) {
                                     final movie = results[index];
-
-                                    final imagePath = movie.posterPath != null
-                                        ? '${ApiConstants.imageBaseUrl}${movie.posterPath}'
-                                        : MovieImages.onboarding;
                                     return Padding(
                                       padding: EdgeInsets.only(
                                         right: index == results.length - 1
@@ -103,12 +98,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
                                             : 20,
                                       ),
                                       child: MoviePopularCard(
-                                        movieName: movie.title,
-                                        movieDescription:
-                                            movie.originalTitle.isNotEmpty
-                                            ? movie.originalTitle
-                                            : movie.title,
-                                        movieImgPath: imagePath,
+                                        movie: movie,
                                       ),
                                     );
                                   },
@@ -147,10 +137,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
                                   itemCount: results.length,
                                   itemBuilder: (context, index) {
                                     final tvSeries = results[index];
-                                    final imagePath =
-                                        tvSeries.posterPath != null
-                                        ? '${ApiConstants.imageBaseUrl}${tvSeries.posterPath}'
-                                        : MovieImages.onboarding;
+                            
                                     return Padding(
                                       padding: EdgeInsets.only(
                                         right: index == results.length - 1
@@ -158,10 +145,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
                                             : 15,
                                       ),
                                       child: MovieTVSeriesCard(
-                                        movieName: tvSeries.title,
-                                        movieDescription:
-                                            tvSeries.originalTitle,
-                                        movieImgPath: imagePath,
+                                       movie: tvSeries,
                                       ),
                                     );
                                   },
