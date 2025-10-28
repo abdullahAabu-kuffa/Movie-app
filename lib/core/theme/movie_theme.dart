@@ -4,7 +4,7 @@ import 'package:movie_app/core/theme/movie_colors.dart';
 class MovieTheme {
   static ThemeData get theme {
     return ThemeData.light().copyWith(
-      scaffoldBackgroundColor: MovieColors.primary,
+      scaffoldBackgroundColor: MovieColors.grayDark,
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: MovieColors.secondary,
       ),

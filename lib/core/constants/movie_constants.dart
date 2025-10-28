@@ -18,6 +18,7 @@ class MovieImages {
   static const path = 'assets/images/';
 
   static const String onboarding = '${path}onboarding.png';
+  static const String profileImage = '${path}me.jpg';
 }
 
 // Movie Strings Constants
@@ -36,6 +37,7 @@ class MovieStrings {
   static const String titleSectionTVseries = 'TV Series';
   static const String titleSectionFavorites = "Favorites Movies";
   static const String titleSectionSearch = "Search Movies";
+  static const String titleSectionAllMovies = "All Movies";
 }
 
 class MoviePopular {

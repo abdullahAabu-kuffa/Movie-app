@@ -4,14 +4,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/core/routing/movie_router.dart';
 import 'package:movie_app/core/theme/movie_theme.dart';
 import 'package:movie_app/core/constants/movie_constants.dart';
+import 'package:movie_app/logic/cubit/movies_cubit/movies_cubit.dart';
 import 'package:movie_app/logic/cubit/search_cubit/search_cubit.dart';
+import 'package:movie_app/logic/cubit/favorites_cubit/favorites_cubit.dart';
+import 'package:movie_app/logic/cubit/tvseries_cubit/tvseries_cubit.dart';
 
 void main() {
   //WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiBlocProvider(
       providers: [
+        BlocProvider<MoviesCubit>(create: (context) => MoviesCubit()),
+        BlocProvider<TvSeriesCubit>(create: (context) => TvSeriesCubit()),
         BlocProvider<SearchCubit>(create: (context) => SearchCubit()),
+        BlocProvider<FavoritesCubit>(create: (context) => FavoritesCubit()),
       ],
       child: const MovieApp(),
     ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/theme/movie_colors.dart';
 import 'package:movie_app/ui/screens/favorite_screen.dart';
 import 'package:movie_app/ui/screens/movies_screen.dart';
 import 'package:movie_app/ui/screens/profile_screen.dart';
@@ -33,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: MovieColors.grayDark,
       bottomNavigationBar: HomeNavBar(
         currentIndexScreen: currentIndex,
         onTap: onNavBarTap,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/core/constants/movie_constants.dart';
-import 'package:movie_app/core/theme/movie_colors.dart';
 import 'package:movie_app/logic/cubit/TvSeries_cubit/TvSeries_state.dart';
 import 'package:movie_app/logic/cubit/movies_cubit/movies_cubit.dart';
 import 'package:movie_app/logic/cubit/movies_cubit/movies_state.dart';
@@ -48,7 +47,6 @@ class _MoviesScreenState extends State<MoviesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MovieColors.grayDark,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.only(top: 50, left: 15, right: 15, bottom: 5),
@@ -108,6 +106,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
                             },
                           ),
                         ),
+                        const SizedBox(height: 20),
                         MovieTitleSection(
                           titleSectionPopular:
                               MovieStrings.titleSectionTVseries,

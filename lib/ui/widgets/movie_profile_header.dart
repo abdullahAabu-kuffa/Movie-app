@@ -19,8 +19,8 @@ class _MovieProfileHeaderState extends State<MovieProfileHeader> {
                     children: [
                       CircleAvatar(
                         radius: 24,
-                        backgroundColor: MovieColors.transparent,
-                        backgroundImage: AssetImage(MovieImages.onboarding),
+                        backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
+                        backgroundImage: AssetImage(MovieImages.profileImage),
                       ),
 
                       const SizedBox(width: 10),

@@ -12,6 +12,7 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: MovieColors.primary,
         body: Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 0),

@@ -19,10 +19,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset: true,
-      // backgroundColor: MovieColors.grayDark,
-      // bottomNavigationBar: HomeNavBar(currentIndexScreen: currentIndex,
-      // onTap: onNavBarTap,),
     );
   }
 }
