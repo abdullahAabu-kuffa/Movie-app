@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/theme/movie_colors.dart';
 import 'package:movie_app/data/models/movie_model.dart';
+import 'package:movie_app/logic/cubit/favorites_cubit/favorites_cubit.dart';
 import 'package:movie_app/ui/widgets/movie_button.dart';
 
 class MovieDetails extends StatefulWidget {
@@ -26,13 +28,9 @@ class _MovieDetailsState extends State<MovieDetails> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          // 1. شريط التطبيق الممتد (SliverAppBar) - تم التعريف أدناه
           _buildSliverAppBar(screenHeight),
-
-          // 2. محتوى تفاصيل الفيلم
           SliverList(
             delegate: SliverChildListDelegate([
-              // الدوال المساعدة المستدعاة - تم التعريف أدناه
               _buildMovieInfo(),
               _buildOverviewSection(),
               const SizedBox(height: 30),
@@ -53,13 +51,27 @@ class _MovieDetailsState extends State<MovieDetails> {
       iconTheme: const IconThemeData(color: MovieColors.white),
 
       actions: [
-        IconButton(
-          onPressed: () {
-            /* منطق إضافة للمفضلة */
+        BlocBuilder<FavoritesCubit, List<MovieModel>>(
+          builder: (context, favorites) {
+            final isFavorite = favorites.contains(widget.movie);
+            return IconButton(
+              onPressed: () {
+                if (isFavorite) {
+                  context.read<FavoritesCubit>().removeMovieFromFavorites(
+                    widget.movie,
+                  );
+                } else {
+                  context.read<FavoritesCubit>().addMovieToFavorites(
+                    widget.movie,
+                  );
+                }
+              },
+              icon: Icon(
+                isFavorite ? Icons.favorite : Icons.favorite_border,
+                color: isFavorite ? Colors.red : MovieColors.white70,
+              ),
+            );
           },
-          icon: const Icon(Icons.favorite_border),
-          color: MovieColors.secondary,
-          iconSize: 32,
         ),
         const SizedBox(width: 8),
       ],
@@ -107,7 +119,7 @@ class _MovieDetailsState extends State<MovieDetails> {
             children: [
               const Icon(Icons.star, color: MovieColors.secondary, size: 20),
               const SizedBox(width: 5),
-               Text(
+              Text(
                 widget.movie.voteAverage.toString(),
                 style: TextStyle(color: MovieColors.white70, fontSize: 16),
               ),

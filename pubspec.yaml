@@ -45,6 +45,14 @@ dev_dependencies:
   #retrofit generator is an dio client generator using source_gen
   retrofit_generator: ^10.0.1
   json_serializable: ^6.10.0
+  #A package which simplifies the task of updating your Flutter app's launcher icon
+  flutter_launcher_icons: ^0.14.4
+
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/movie_logo.png" 
 
 flutter:
   uses-material-design: true
