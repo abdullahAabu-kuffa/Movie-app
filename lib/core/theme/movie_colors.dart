@@ -12,4 +12,5 @@ class MovieColors {
   static const Color gray70 = Color(0xFF7C7C7C);
   static const Color grayDark = Color(0xFF1B1B1B);
   static const Color transparent = Colors.transparent;
+  
 }
