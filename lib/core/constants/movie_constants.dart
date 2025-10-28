@@ -34,6 +34,8 @@ class MovieStrings {
   static const String hintSearchString = "Search movies...";
   static const String titleSectionPopular = "Popular Movies";
   static const String titleSectionTVseries = 'TV Series';
+  static const String titleSectionFavorites = "Favorites Movies";
+  static const String titleSectionSearch = "Search Movies";
 }
 
 class MoviePopular {
