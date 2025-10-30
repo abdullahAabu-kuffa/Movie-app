@@ -9,7 +9,7 @@ import 'package:movie_app/ui/widgets/movie_title_seaction.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
-  
+
   @override
   State<SearchScreen> createState() => _SearchScreenState();
 }
@@ -57,13 +57,12 @@ class _SearchScreenState extends State<SearchScreen> {
                     mainAxisSpacing: 10,
                   ),
                   shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   itemCount: results.length,
                   itemBuilder: (context, index) {
                     final movie = results[index];
-                    return MoviePopularCard(
-                      movie: movie
-                    );
+                    return MoviePopularCard(movie: movie);
                   },
                 );
               }

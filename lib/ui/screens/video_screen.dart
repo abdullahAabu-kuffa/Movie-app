@@ -72,6 +72,7 @@ class _VideoScreenState extends State<VideoScreen> {
                                       mainAxisSpacing: 10,
                                     ),
                                 shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
                                 scrollDirection: Axis.vertical,
                                 itemCount: results.length,
                                 itemBuilder: (context, index) {
