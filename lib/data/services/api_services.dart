@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:movie_app/core/networking/api_constants.dart';
+import 'package:movie_app/data/models/movie_video_model.dart';
+import 'package:movie_app/data/models/movie_video_response.dart';
 import '../models/movie_response.dart';
 
 class ApiService {
@@ -37,6 +39,7 @@ class ApiService {
       throw Exception('Unexpected error: $e');
     }
   }
+
   //fetch TV Series
   Future<List<MovieResponse>> getTvSeries({int page = 1}) async {
     try {
@@ -84,7 +87,7 @@ class ApiService {
       );
 
       if (response.statusCode == 200) {
-       final Map<String, dynamic> data = response.data as Map<String, dynamic>;
+        final Map<String, dynamic> data = response.data as Map<String, dynamic>;
         final movieResponse = MovieResponse.fromJson(data);
         return [movieResponse];
       } else {
@@ -92,6 +95,37 @@ class ApiService {
       }
     } catch (e) {
       throw Exception('Error searching movies: $e');
+    }
+  }
+
+  //fetch trailer of movie
+  Future<List<MovieVideoModel>> fetchTrailer(int movieId) async {
+    try {
+      String id = movieId.toString();
+      final response = await _dio.get(
+        '${ApiConstants.baseUrl}/movie/$id/videos',
+        queryParameters: {
+          'api_key': ApiConstants.apiKey,
+          'language': 'en-US',
+          'include_adult': false,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = response.data as Map<String, dynamic>;
+        final videoResponse = MovieVideoResponse.fromJson(data);
+
+        // Filter only YouTube trailers (optional)
+        final trailers = videoResponse.results
+            .where((v) => v.site == 'YouTube' && v.type == 'Trailer')
+            .toList();
+
+        return trailers;
+      } else {
+        throw Exception('Failed to display trailer');
+      }
+    } catch (e) {
+      throw Exception('Error fetch trailer: $e');
     }
   }
 }

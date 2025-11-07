@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/routing/movie_router.dart';
 import 'package:movie_app/core/theme/movie_colors.dart';
 import 'package:movie_app/data/models/movie_model.dart';
 import 'package:movie_app/logic/cubit/favorites_cubit/favorites_cubit.dart';
@@ -125,17 +126,23 @@ class _MovieDetailsState extends State<MovieDetails> {
               ),
               const Spacer(),
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
                   color: MovieColors.secondary,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(25),
                 ),
-                child: const Text(
-                  'Watch Trailer',
-                  style: TextStyle(color: MovieColors.white, fontSize: 14),
+                child: TextButton(
+                  child: const Text(
+                    'Watch Trailer',
+                    style: TextStyle(color: MovieColors.white, fontSize: 14),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routes.movieVideo,
+                      arguments: widget.movie.id,
+                    );
+                  },
                 ),
               ),
             ],

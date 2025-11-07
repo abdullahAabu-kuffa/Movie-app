@@ -8,6 +8,7 @@ import 'package:movie_app/logic/cubit/movies_cubit/movies_cubit.dart';
 import 'package:movie_app/logic/cubit/search_cubit/search_cubit.dart';
 import 'package:movie_app/logic/cubit/favorites_cubit/favorites_cubit.dart';
 import 'package:movie_app/logic/cubit/tvseries_cubit/tvseries_cubit.dart';
+import 'package:movie_app/logic/cubit/video_cubit/video_cubit.dart';
 
 void main() {
   //WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +19,7 @@ void main() {
         BlocProvider<TvSeriesCubit>(create: (context) => TvSeriesCubit()),
         BlocProvider<SearchCubit>(create: (context) => SearchCubit()),
         BlocProvider<FavoritesCubit>(create: (context) => FavoritesCubit()),
+        BlocProvider<VideoCubit>(create: (context) => VideoCubit()),
       ],
       child: const MovieApp(),
     ),

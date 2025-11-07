@@ -37,7 +37,10 @@ dependencies:
   flutter_native_splash: ^2.4.7
   #A flutter plugin for adapting screen and font size.Guaranteed to look good on different models
   flutter_screenutil: ^5.9.3
+  #Flutter plugin for playing or streaming YouTube videos inline using the official iFrame Player API.
+  youtube_player_flutter: ^9.1.3
 
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
