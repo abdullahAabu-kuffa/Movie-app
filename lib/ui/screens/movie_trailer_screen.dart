@@ -30,7 +30,6 @@ class _MovieTrailerScreenState extends State<MovieTrailerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
     return PopScope(
       canPop: true,
       onPopInvoked: (didPop) {
